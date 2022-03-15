@@ -1,0 +1,88 @@
+@import "../../globalColor";
+
+.card-education {
+  display: block;
+  top: 0px;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 32px 24px;
+  margin: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+
+  .go-corner {
+    background-color: #00838d;
+    height: 100%;
+    width: 250px;
+    padding-right: 9px;
+    border-radius: 0;
+    transform: skew(6deg);
+    margin-right: -36px;
+    align-items: start;
+    background-image: linear-gradient(-45deg, #1b1b1b 1%, #1b1b1b 100%);
+    transition: all 0.3s ease-out;
+  }
+
+  .go-arrow {
+    transform: skew(-6deg);
+    margin-left: -2px;
+    margin-top: 9px;
+    opacity: 0;
+  }
+
+  &:hover {
+    box-shadow: $lightBoxShadowDark 0px 40px 50px -10px;
+  }
+
+  h3 {
+    margin-top: 8px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.35rem 0.375rem;
+    font-size: 100%;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    height: 31px;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    text-transform: uppercase;
+  }
+  .badge-info {
+    color: #fff;
+    background-color: #11cdef;
+  }
+}
+
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  overflow: hidden;
+  top: 0;
+  right: -250px;
+  background-color: #00838d;
+  border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+  margin-top: -4px;
+  margin-right: -4px;
+  color: white;
+  font-family: courier, sans;
+}

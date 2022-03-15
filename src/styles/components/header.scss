@@ -1,0 +1,18 @@
+@import '../colors';
+
+.color-nav{
+  background: $blue-gradien !important;
+  color: white;
+  .navbar-toggler{
+    color: transparent !important;
+    border: none !important;
+    span {
+      fill: white !important;
+    }
+  }
+  .navbar-nav{
+    .nav-link{
+      color: white !important;
+    }
+  } 
+}

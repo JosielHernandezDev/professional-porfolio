@@ -1,0 +1,84 @@
+@import "./colors";
+
+.personal-section {
+  .section-shaped {
+    position: relative;
+    overflow: hidden;
+    .shape {
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      .container {
+        position: relative;
+      }
+      .btn-wrapper {
+        margin-top: 3rem;
+      }
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      p {
+        font-weight: 300;
+        line-height: 1.7;
+      }
+    }
+  }
+}
+.separator {
+  position: absolute;
+  z-index: unset;
+  top: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  overflow: hidden;
+}
+.separator-skew {
+  height: 80px;
+}
+.separator-bottom {
+  top: auto;
+  bottom: 0;
+  svg {
+    bottom: 0;
+    position: absolute;
+  }
+}
+.bg-gradient-info {
+  background: $blue-gradien !important;
+}
+
+.section-shaped {
+  .shape-style-1 {
+    :first-child {
+      left: -4%;
+      bottom: auto;
+      background: hsla(0, 0%, 100%, 0.1);
+    }
+    span {
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.section-lg {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 992px) {
+  .pb-250 {
+    padding-bottom: 250px !important;
+  }
+}

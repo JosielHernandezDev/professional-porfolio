@@ -1,0 +1,15 @@
+ @import "./layout.scss";
+ @import "./text.scss";
+ @import "./libary/shaper.scss";
+ @import "./icons.scss";
+ @import "./colors";
+ @import "./buttons.scss";
+
+ @import "./components/header.scss";
+ @import "./components/footer.scss";
+ 
+ //sections
+ @import "./sections.scss";
+ @import "./components/sections/personal-presentation.scss";
+ @import "./components/sections/what-do.scss";
+ @import "./components/sections/education.scss";

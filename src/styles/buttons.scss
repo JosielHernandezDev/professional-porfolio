@@ -1,0 +1,18 @@
+@import "./colors";
+@import "./globalColor";
+
+button{
+
+    &.j-btn{
+        &.j-btn-primary,&:hover{
+            color: white !important;
+            border-color: $j-ligth-blue !important; 
+            background-color: $j-ligth-blue !important;
+        }
+        &:hover{
+            border: $j-ligth-blue;
+            border-color: $j-ligth-blue !important; 
+            box-shadow: $lightBoxShadowDark 0px 5px 5px -1px;
+        }
+    }
+}

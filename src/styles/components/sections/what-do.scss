@@ -1,0 +1,25 @@
+.icon-shape {
+  padding: 19px;
+  text-align: center;
+  display: -moz-inline-box;
+  display: inline-flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  border-radius: 50%;
+  &.rounded-circle {
+    border-radius: 50%;
+  }
+  &.icon-lg {
+    width: 4rem;
+    height: 4rem;
+  }
+  &[class*="shadow"] {
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+  }
+  &.icon {
+      margin: 10px
+  }
+}

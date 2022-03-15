@@ -1,0 +1,38 @@
+.btn-instagram,
+.btn-instagram:hover {
+  color: #fff;
+  background-color: #e4405f;
+  border-color: #e4405f;
+}
+
+.btn-twitter,
+.btn-twitter:hover {
+  color: #fff;
+  background-color: #1da1f2;
+  border-color: #1da1f2;
+}
+
+.btn-youtube,
+.btn-youtube:hover {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+.btn-facebook,
+.btn-facebook:hover {
+  color: #fff;
+  background-color: #3b5999;
+  border-color: #3b5999;
+}
+
+.btn-github,
+.btn-github:hover {
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
+
+.btn:not(:last-child) {
+  margin-right: 0.5rem;
+}
