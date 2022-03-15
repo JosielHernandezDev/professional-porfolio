@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkprofessional_profolio_josiel_hernandez=self.webpackChunkprofessional_profolio_josiel_hernandez||[]).push([[883],{9616:function(e,t,n){n.r(t);var o=n(7294),l=n(9843),s=n(3751);t.default=function(){return o.createElement(l.Z,null,o.createElement(s.Z,{title:"404: Not found"}),o.createElement("h1",null,"404: Not Found"),o.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-ce0f22539f80021890b8.js.map
