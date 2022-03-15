@@ -52,7 +52,8 @@
     "start": "node fetch.js && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "deploy":"node fetch.js && gatsby build --prefix-paths  && gh-pages -d public" 
+    "deploy":"node fetch.js && gatsby build --prefix-paths  && gh-pages -d public",
+    "preinstall":"node fetch.js"
   },
   "repository": {
     "type": "git",
