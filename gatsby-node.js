@@ -1,3 +1,8 @@
+fs = require("fs")
+const https = require("https")
+process = require("process")
+require("dotenv").config()
+
 exports.onPostBuild = async () => {
   console.info(`console.log => 2`)
 
