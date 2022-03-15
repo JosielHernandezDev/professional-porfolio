@@ -1,25 +1,44 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "professional-profolio-josiel-hernandez",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple Professional profolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Josiel Hernandez <josiel.hernandez.dev@gmail.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@iconify/react": "^3.1.3",
+    "@popperjs/core": "^2.11.2",
+    "bootstrap": "^5.1.3",
     "gatsby": "^4.5.4",
+    "gatsby-plugin-fontawesome-css": "^1.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.5.2",
     "gatsby-plugin-image": "^2.5.2",
     "gatsby-plugin-manifest": "^4.5.2",
     "gatsby-plugin-offline": "^5.5.2",
     "gatsby-plugin-react-helmet": "^5.5.0",
+    "gatsby-plugin-react-i18next": "^1.2.2",
+    "gatsby-plugin-sass": "^5.5.0",
     "gatsby-plugin-sharp": "^4.5.2",
     "gatsby-source-filesystem": "^4.5.2",
     "gatsby-transformer-sharp": "^4.5.0",
+    "gh-pages": "^3.2.3",
+    "i18next": "^21.6.7",
+    "jquery": "^3.6.0",
     "prop-types": "^15.8.0",
     "react": "^17.0.1",
+    "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^11.15.3",
+    "react-reveal": "^1.2.2",
+    "sass": "^1.49.0"
   },
   "devDependencies": {
+    "dotenv": "^15.0.0",
     "prettier": "^2.5.1"
   },
   "keywords": [
@@ -27,13 +46,13 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "gatsby build && node fetch.js",
+    "dev": "node fetch.js && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "node fetch.js && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "deploy":"gatsby build --prefix-paths && node fetch.js && gh-pages -d public" 
   },
   "repository": {
     "type": "git",
