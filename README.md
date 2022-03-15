@@ -8,38 +8,139 @@
  This is my professional profolio build whit ReactJS
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Hi, I´m Josiel Hernandez, I´m a FrontEnd Developer. This project is a ReactJs and Gatsby site to connect my gitHub profile and a site as portfolio
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+1.  **Section "About me"**
+
+![image](https://user-images.githubusercontent.com/73715766/158483070-b71d8642-7a43-4378-b9c0-9e92b24a569b.png)
+
+2.  **Section "What I Do"**
+
+![image](https://user-images.githubusercontent.com/73715766/158483245-7bda0bbe-dce2-4c63-b19d-c9a5d7df0ade.png)
+
+3.  **Section "Open Source Projects"**
+
+![image](https://user-images.githubusercontent.com/73715766/158483328-6ea511ed-cb20-4097-9b1a-d9de4e92ff32.png)
+
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1. **Install Dependencies.**
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
-
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+   ```shell
+    # npm install
     ```
 
-1.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
+2.  **Run develop envoroment.**
 
     ```shell
-    cd my-default-starter/
-    gatsby develop
+    npm run dev
     ```
-
-1.  **Open the source code and start editing!**
-
+    
     Your site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    **The project have a "Fetch.js" to creat a "Profile.js" data"**
+    
+    ```JS
+    fs = require("fs")
+    const https = require("https")
+    process = require("process")
+    require("dotenv").config()
 
+    const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
+    const GITHUB_USERNAME = process.env.GITHUB_USERNAME
+    const USE_GITHUB_DATA = process.env.USE_GITHUB_DATA
+    const ERR = {
+      noUserName:
+        "Github Username was found to be undefined. Please set all relevant environment variables.",
+      requestFailed:
+        "The request to GitHub didn't succeed. Check if GitHub token in your .env file is correct.",
+      requestFailedMedium:
+        "The request to Medium didn't succeed. Check if Medium username in your .env file is correct.",
+    }
+
+    if (USE_GITHUB_DATA === "true") {
+      if (GITHUB_USERNAME === undefined) {
+        throw new Error(ERR.noUserName)
+      }
+
+      console.log(`Fetching profile data for ${GITHUB_USERNAME}`)
+      var data = JSON.stringify({
+        query: `
+    {
+      user(login:"${GITHUB_USERNAME}") { 
+        name
+        bio
+        isHireable
+        avatarUrl
+        location
+        pinnedItems(first: 6, types: [REPOSITORY]) {
+          totalCount
+          edges {
+              node {
+                ... on Repository {
+                  name
+                  description
+                  forkCount
+                  stargazers {
+                    totalCount
+                  }
+                  url
+                  id
+                  diskUsage
+                  primaryLanguage {
+                    name
+                    color
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+    `,
+      })
+      const default_options = {
+        hostname: "api.github.com",
+        path: "/graphql",
+        port: 443,
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${GITHUB_TOKEN}`,
+          "User-Agent": "Node",
+        },
+      }
+
+      const req = https.request(default_options, res => {
+        let data = ""
+
+        console.log(`statusCode: ${res.statusCode}`)
+        if (res.statusCode !== 200) {
+          throw new Error(ERR.requestFailed)
+        }
+
+        res.on("data", d => {
+          data += d
+        })
+        res.on("end", () => {
+          fs.writeFile("./public/profile.json", data, function (err) {
+            if (err) return console.log(err)
+            console.log("saved file to public/profile.json")
+          })
+        })
+      })
+
+      req.on("error", error => {
+        throw error
+      })
+
+      req.write(data)
+      req.end()
+    }
+    ```
+    
 ## 🚀 Quick start (Gatsby Cloud)
 
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
@@ -88,13 +189,6 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 12. **`README.md`**: A text file containing useful reference information about your project.
 
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
 ## 💫 Deploy
 
